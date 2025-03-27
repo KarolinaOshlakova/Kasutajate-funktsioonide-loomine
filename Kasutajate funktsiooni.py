@@ -57,3 +57,33 @@ except ValueError as ve:
     print(f"Viga: {ve}")
 else:
     print(f"Teie lõppsumma pärast {aastad} aastat on: {lõppsumma:.2f} eurot.")
+#6
+try:
+    a = input("Sisesta arv (või vajuta Enter, et kasutada juhuslikku arvu): ")
+
+    if a == "": 
+        print(f"Juhuslik arv: {is_prime()}")
+    else:
+        a = int(a)
+        if a < 0 or a > 10000:
+            print("Viga: Arv peab olema vahemikus 0 kuni 10000.")
+        else:
+            print(f"Kas {a} on algarv? {is_prime(a)}")
+except:
+    print("Viga: Palun sisestage kehtiv täisarv.")
+#7
+try:
+    päev = int(input("Päev: "))
+    kuu = int(input("Kuu: "))
+    aasta = int(input("Aasta: "))
+    if aasta <= 0 or kuu < 1 or kuu > 12 or päev <= 0:
+        print ("Vigased sisendid")
+    if kuu in [1, 3, 5, 7, 8, 10, 12] and päev <= 31: print(True)
+    elif kuu in [4, 6, 9, 11] and päev <= 30: print(True)
+    elif kuu == 2:
+        if (aasta % 4 == 0 and aasta % 100 != 0) or (aasta % 400 == 0): 
+            print(True) if päev <= 29 else print(False)
+        else: 
+            print(True) if päev <= 28 else print(False)
+    else: print(False)
+except: print(False)

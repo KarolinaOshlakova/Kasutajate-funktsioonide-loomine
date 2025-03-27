@@ -77,3 +77,39 @@ def bank(summa: float,aastad:int)->float:
     for aasta in range(aastad):
         summa*=1.1
     return summa 
+#6
+from random import *
+def is_prime(a=randint(1,10000)):
+    """
+    :param: Arv, mida kontrollitakse.
+    :param: Kõrgeim väärtus, mille vahemikus juhuslik arv genereeritakse
+    :rtype: bool
+    :return: True, kui arv on algarv, vastasel juhul False
+    """
+    print(a)
+    v=True
+    for jagaja in range(2,a):
+        if a%jagaja==0:
+            v=False
+    return v
+#7
+def date(päev:int,kuu:int,aasta:int)->bool:
+    """
+    :param: Päev, mida kontrollitakse
+    :rtype: bool
+    :return: True, kui kuupäev on kehtiv, vastasel juhul False
+    :param aasta: Aasta, mida kontrollitakse
+    :param kuu: Kuu, mida kontrollitakse (1 kuni 12)
+    :type: int
+    """
+    if päev in range(1,32) and kuu in [1,3,5,7,8,10,12] and aasta>0:
+        v=True
+    elif päev in range(1,30) and kuu==2 and is_year_leap(aasta):
+        v=True
+    elif päev in range(1,29) and kuu==2 and not is_year_leap(aasta):
+        v=True
+    elif päev in range(1,31) and kuu in [4,6,9,11,8] and aasta>0:
+        v=True
+    else:
+        v=False
+    return v
